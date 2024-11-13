@@ -1,0 +1,50 @@
+---
+title: "Example slides"
+subtitle: "dataviz gapminder"
+author: "Laura Toro"
+format: revealjs
+editor: visual
+---
+
+## Loading data
+
+We load the dataset gapminder in R package "gapminder"
+
+```{r}
+library(gapminder)
+gapminder
+```
+
+---
+
+## Preprocess data
+
+We filter just data from 2007.
+
+```{r}
+library(tidyverse)
+
+gapminder_2007 <-
+  gapminder |> 
+  filter(year == 2007)
+
+gapminder_2007
+```
+
+---
+
+## Plot the data
+
+
+```{r}
+library(tidyverse)
+
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = lifeExp, y = gdpPercap,
+             color = continent)) +
+  theme_minimal()
+```
+
+Important if we want to upload to github:
+-To work with a website you need a index.html
+-Save like "index"
